@@ -1,7 +1,9 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 COPY . .
-RUN dotnet publish ProductosMVC/ProductosMVC.csproj -c Release -o out
+RUN csproj=$(find . -name "*.csproj" -type f | head -1) \
+    && echo "Building: $csproj" \
+    && dotnet publish "$csproj" -c Release -o out
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
