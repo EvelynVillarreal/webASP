@@ -1,21 +1,12 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
-
-COPY ["ProductosMVC/ProductosMVC/ProductosMVC.csproj", "ProductosMVC/ProductosMVC/"]
-RUN dotnet restore "ProductosMVC/ProductosMVC/ProductosMVC.csproj"
-
-COPY ProductosMVC/ProductosMVC/. ProductosMVC/ProductosMVC/
-WORKDIR "/src/ProductosMVC/ProductosMVC"
-RUN dotnet publish "ProductosMVC.csproj" -c Release -o /app/publish
+WORKDIR /app
+COPY . .
+RUN dotnet publish ProductosMVC/ProductosMVC.csproj -c Release -o out
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-
 ENV ASPNETCORE_ENVIRONMENT=Production
 ENV MongoDbSettings__DatabaseName=ProductosMVC
-
 EXPOSE 8080
-
-COPY --from=build /app/publish .
-
+COPY --from=build /app/out .
 ENTRYPOINT ["dotnet", "ProductosMVC.dll"]
