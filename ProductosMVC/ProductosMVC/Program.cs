@@ -22,14 +22,13 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+app.UseStaticFiles();
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Product/Error");
     app.UseHsts();
 }
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
 
 var supportedCultures = new[] { new CultureInfo("en-US") };
 var localizationOptions = new RequestLocalizationOptions
