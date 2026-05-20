@@ -42,3 +42,4 @@ C:\Users\G300\Desktop\class activity\ProductosMVC\ProductosMVC\obj\Release\net8.
 C:\Users\G300\Desktop\class activity\ProductosMVC\ProductosMVC\obj\Release\net8.0\ProductosMVC.genruntimeconfig.cache
 C:\Users\G300\Desktop\class activity\ProductosMVC\ProductosMVC\obj\Release\net8.0\ref\ProductosMVC.dll
 C:\Users\G300\Desktop\class activity\ProductosMVC\ProductosMVC\bin\Release\net8.0\MongoDB.Entities.dll
+C:\Users\G300\Desktop\class activity\ProductosMVC\ProductosMVC\obj\Release\net8.0\ProductosMVC.sourcelink.json
