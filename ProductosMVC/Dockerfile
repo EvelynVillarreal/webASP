@@ -1,11 +1,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-COPY ["ProductosMVC/ProductosMVC.csproj", "ProductosMVC/"]
-RUN dotnet restore "ProductosMVC/ProductosMVC.csproj"
+COPY ["ProductosMVC/ProductosMVC/ProductosMVC.csproj", "ProductosMVC/ProductosMVC/"]
+RUN dotnet restore "ProductosMVC/ProductosMVC/ProductosMVC.csproj"
 
-COPY . .
-WORKDIR "/src/ProductosMVC"
+COPY ProductosMVC/ProductosMVC/. ProductosMVC/ProductosMVC/
+WORKDIR "/src/ProductosMVC/ProductosMVC"
 RUN dotnet publish "ProductosMVC.csproj" -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
