@@ -1,0 +1,52 @@
+@model Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h1 class="page-title">Product Details</h1>
+
+<div class="detail-card">
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Name):</span>
+        <span class="detail-value">@Model.Name</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Category):</span>
+        <span class="detail-value">@Model.Category</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.BasePrice):</span>
+        <span class="detail-value">@Model.BasePrice.ToString("C2")</span>
+    </div>
+    <div class="detail-row highlight-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Tax) (15%):</span>
+        <span class="detail-value">@Model.Tax.ToString("C2")</span>
+    </div>
+    <div class="detail-row highlight-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.PriceWithTax):</span>
+        <span class="detail-value">@Model.PriceWithTax.ToString("C2")</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Quantity):</span>
+        <span class="detail-value">@Model.Quantity</span>
+    </div>
+    <div class="detail-row total-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Total):</span>
+        <span class="detail-value">@Model.Total.ToString("C2")</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Description):</span>
+        <span class="detail-value">@(string.IsNullOrEmpty(Model.Description) ? "No description" : Model.Description)</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.RegistrationDate):</span>
+        <span class="detail-value">@Model.RegistrationDate.ToString("dd/MM/yyyy HH:mm")</span>
+    </div>
+</div>
+
+<div class="actions-bar">
+    <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Delete</a>
+</div>

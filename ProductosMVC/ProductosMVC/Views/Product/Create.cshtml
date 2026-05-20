@@ -1,0 +1,69 @@
+@model Product
+
+@{
+    ViewData["Title"] = "Register Product";
+}
+
+<h1 class="page-title">Register New Product</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create" method="post" class="product-form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="Enter product name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" placeholder="e.g. Electronics, Home, Clothing" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BasePrice" class="control-label"></label>
+                <input asp-for="BasePrice" class="form-control" placeholder="0.00" />
+                <span asp-validation-for="BasePrice" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" placeholder="1" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="3" placeholder="Optional product description"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save Product</button>
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-4">
+        <div class="info-panel">
+            <h3>VAT Information</h3>
+            <p>Value Added Tax (VAT) is calculated automatically:</p>
+            <ul>
+                <li><strong>VAT Rate:</strong> 15%</li>
+                <li><strong>Tax:</strong> Base Price &times; 0.15</li>
+                <li><strong>Price with VAT:</strong> Base Price + Tax</li>
+                <li><strong>Total:</strong> (Base Price + VAT) &times; Quantity</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

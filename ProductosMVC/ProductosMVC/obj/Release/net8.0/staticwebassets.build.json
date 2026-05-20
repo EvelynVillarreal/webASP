@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "hlBFn+OfGpw3jCKZfw/6omAA/A6bVy4WVvppUqVOOmc=",
+  "Source": "ProductosMVC",
+  "BasePath": "_content/ProductosMVC",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ProductosMVC\\wwwroot",
+      "Source": "ProductosMVC",
+      "ContentRoot": "C:\\Users\\G300\\Desktop\\class activity\\ProductosMVC\\ProductosMVC\\wwwroot\\",
+      "BasePath": "_content/ProductosMVC",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\G300\\Desktop\\class activity\\ProductosMVC\\ProductosMVC\\wwwroot\\css\\site.css",
+      "SourceId": "ProductosMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\G300\\Desktop\\class activity\\ProductosMVC\\ProductosMVC\\wwwroot\\",
+      "BasePath": "_content/ProductosMVC",
+      "RelativePath": "css/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    }
+  ]
+}

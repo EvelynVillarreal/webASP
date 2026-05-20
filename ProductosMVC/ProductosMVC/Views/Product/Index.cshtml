@@ -1,0 +1,63 @@
+@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<h1 class="page-title">Registered Products</h1>
+
+<p class="actions-bar">
+    <a asp-action="Create" class="btn btn-primary">Register New Product</a>
+</p>
+
+@if (!Model.Any())
+{
+    <div class="empty-state">
+        <p>No products registered. Create a new product to get started.</p>
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.Category)</th>
+                    <th>@Html.DisplayNameFor(model => model.BasePrice)</th>
+                    <th>@Html.DisplayNameFor(model => model.Tax)</th>
+                    <th>@Html.DisplayNameFor(model => model.PriceWithTax)</th>
+                    <th>@Html.DisplayNameFor(model => model.Quantity)</th>
+                    <th>@Html.DisplayNameFor(model => model.Total)</th>
+                    <th>@Html.DisplayNameFor(model => model.RegistrationDate)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <td>@product.Name</td>
+                        <td>@product.Category</td>
+                        <td class="text-right">@product.BasePrice.ToString("C2")</td>
+                        <td class="text-right">@product.Tax.ToString("C2")</td>
+                        <td class="text-right">@product.PriceWithTax.ToString("C2")</td>
+                        <td class="text-center">@product.Quantity</td>
+                        <td class="text-right highlight">@product.Total.ToString("C2")</td>
+                        <td>@product.RegistrationDate.ToString("dd/MM/yyyy")</td>
+                        <td class="actions">
+                            <a asp-action="Edit" asp-route-id="@product.ID" class="btn-sm btn-primary">Edit</a>
+                            <a asp-action="Details" asp-route-id="@product.ID" class="btn-sm btn-info">Details</a>
+                            <a asp-action="Delete" asp-route-id="@product.ID" class="btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="summary-panel">
+        <p><strong>Total Products:</strong> @Model.Count()</p>
+        <p><strong>Grand Total (with VAT):</strong> <span class="total-amount">@Model.Sum(p => p.Total).ToString("C2")</span></p>
+    </div>
+}
